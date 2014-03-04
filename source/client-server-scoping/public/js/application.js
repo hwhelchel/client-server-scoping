@@ -1,11 +1,16 @@
 $(document).ready(function() {
-  $('.awesomeness_teller').on('click', function() {
-
-  });
-
   $('body').on('click','.awesomeness_teller',function(e){
-    $('#awesomeness_holder').text($(e.target).text());
+    $('#awesomeness_holder').text($(e.target).attr("data-heading"));
   });
 
-  // What other events do you need to bind to make the other pages work?
+  $('body').on('click','.skill_teller',function(e){
+    var path = location.pathname.split('/');
+    var skill = path[path.length-1];
+    $('#skill_holder').text(skill);
+  });
+
+  $('body').on('click','.meal_teller',function(e){
+    $('#meal_holder').text(meals[Math.floor(Math.random() * meals.length)]);
+  });
+
 });
